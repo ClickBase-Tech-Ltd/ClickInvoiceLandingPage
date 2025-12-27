@@ -141,7 +141,7 @@ const Provide = () => {
           {/* COLUMN-1 */}
           <div className="col-span-6 flex justify-center">
             <div className="flex flex-col align-middle justify-center p-10">
-              <p className="text-4xl lg:text-6xl pt-4 font-semibold lh-81 mt-5 text-center lg:text-start">
+              <p className="text-3xl lg:text-6xl pt-4 font-semibold lh-81 mt-5 text-center lg:text-start">
                 Everything you need to get paid faster.
               </p>
               <h4 className="text-lg pt-4 font-normal lh-33 text-center lg:text-start text-bluegray">

@@ -1,141 +1,74 @@
-// import Image from "next/image";
-// import { getImagePath } from "../../../lib/utils";
-
-// interface cardDataType {
-//   imgSrc: string;
-//   heading: string;
-//   percent: string;
-//   subheading: string;
-// }
-
-// const cardData: cardDataType[] = [
-//   {
-//     imgSrc: getImagePath("/assets/buyers/ourbuyers.svg"),
-//     percent: "80k",
-//     heading: "Our buyers",
-//     subheading: "Follow a hashtag growth total posts, videos and images.",
-//   },
-//   {
-//     imgSrc: getImagePath("/assets/buyers/projectcompleted.svg"),
-//     percent: "90k",
-//     heading: "Project completed",
-//     subheading: "Follow a hashtag growth total posts, videos and images.",
-//   },
-//   {
-//     imgSrc: getImagePath("/assets/buyers/happybuyers.svg"),
-//     percent: "80%",
-//     heading: "Happy buyers",
-//     subheading: "Follow a hashtag growth total posts, videos and images.",
-//   },
-//   {
-//     imgSrc: getImagePath("/assets/buyers/teammembers.svg"),
-//     percent: "50+",
-//     heading: "Team members",
-//     subheading: "Follow a hashtag growth total posts, videos and images.",
-//   },
-// ];
-
-// const Buyers = () => {
-//   return (
-//     <div className="mx-auto max-w-7xl py-16 px-6">
-//       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-5">
-//         {cardData.map((items, i) => (
-//           <div className="flex flex-col justify-center items-center" key={i}>
-//             <div className="flex justify-center border border-border  p-2 w-10 rounded-lg">
-//               <Image
-//                 src={items.imgSrc}
-//                 alt={items.imgSrc}
-//                 width={30}
-//                 height={30}
-//               />
-//             </div>
-//             <h2 className="text-4xl lg:text-6xl text-black font-semibold text-center mt-5">
-//               {items.percent}
-//             </h2>
-//             <h3 className="text-2xl text-black font-semibold text-center lg:mt-6">
-//               {items.heading}
-//             </h3>
-//             <p className="text-lg font-normal text-black text-center text-opacity-50 mt-2">
-//               {items.subheading}
-//             </p>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Buyers;
-
-
 import Image from "next/image";
 import { getImagePath } from "../../../lib/utils";
 
-interface cardDataType {
+interface CardDataType {
   imgSrc: string;
   heading: string;
   percent: string;
   subheading: string;
 }
 
-const cardData: cardDataType[] = [
+const cardData: CardDataType[] = [
   {
-    // imgSrc: getImagePath("/assets/stats/invoices-sent.svg"),  // e.g., icon of invoices flying out
     imgSrc: getImagePath("/assets/buyers/ourbuyers.svg"),
     percent: "500k+",
     heading: "Invoices Created",
-    subheading: "Users have generated over half a million professional invoices effortlessly.",
+    subheading:
+      "Users have generated over half a million professional invoices effortlessly.",
   },
   {
-    // imgSrc: getImagePath("/assets/stats/payments-received.svg"),  // e.g., money flow icon
     imgSrc: getImagePath("/assets/buyers/projectcompleted.svg"),
     percent: "4x",
     heading: "Faster Payments",
-    subheading: "Businesses get paid up to 4 times faster with automated reminders and easy online payments.",
+    subheading:
+      "Businesses get paid up to 4 times faster with automated reminders and easy online payments.",
   },
   {
-    // imgSrc: getImagePath("/assets/stats/happy-users.svg"),  // e.g., smiling user icon
     imgSrc: getImagePath("/assets/buyers/happybuyers.svg"),
     percent: "95%",
     heading: "Satisfied Users",
-    subheading: "Freelancers and businesses love the simple, reliable invoicing experience.",
+    subheading:
+      "Freelancers and businesses love the simple, reliable invoicing experience.",
   },
   {
-    // imgSrc: getImagePath("/assets/stats/businesses-helped.svg"),  // e.g., team or growth icon
     imgSrc: getImagePath("/assets/buyers/teammembers.svg"),
     percent: "50k+",
     heading: "Businesses Empowered",
-    subheading: "Helping thousands of freelancers and small teams streamline billing.",
+    subheading:
+      "Helping thousands of freelancers and small teams streamline billing.",
   },
 ];
 
 const Buyers = () => {
   return (
-    <div className="mx-auto max-w-7xl py-16 px-6">
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-20 gap-x-5">
-        {cardData.map((items, i) => (
-          <div className="flex flex-col justify-center items-center" key={i}>
-            <div className="flex justify-center border border-border p-2 w-10 rounded-lg">
+    <section className="mx-auto max-w-7xl py-16 px-6 text-center">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-y-16 gap-x-6">
+        {cardData.map((item, i) => (
+          <article
+            key={i}
+            className="flex flex-col justify-center items-center p-4 hover:shadow-lg transition rounded-lg"
+          >
+            <div className="flex justify-center items-center border border-gray-200 p-3 w-12 h-12 rounded-full bg-gray-50">
               <Image
-                src={items.imgSrc}
-                alt={items.heading}
-                width={30}
-                height={30}
+                src={item.imgSrc}
+                alt={item.heading}
+                width={32}
+                height={32}
               />
             </div>
-            <h2 className="text-4xl lg:text-6xl text-black font-semibold text-center mt-5">
-              {items.percent}
+            <h2 className="mt-4 text-2xl sm:text-3xl font-semibold text-[#0A66C2]">
+              {item.percent}
             </h2>
-            <h3 className="text-2xl text-black font-semibold text-center lg:mt-6">
-              {items.heading}
+            <h3 className="mt-2 text-lg sm:text-xl font-medium text-gray-900">
+              {item.heading}
             </h3>
-            <p className="text-lg font-normal text-black text-center text-opacity-50 mt-2">
-              {items.subheading}
+            <p className="mt-1 text-sm sm:text-base text-gray-600 max-w-xs">
+              {item.subheading}
             </p>
-          </div>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -1,117 +1,7 @@
-// import { Disclosure } from "@headlessui/react";
-// import { Bars3Icon } from "@heroicons/react/24/outline";
-// import Link from "next/link";
-// import React from "react";
-// import { getImagePath } from "../../../lib/utils";
-// import Drawer from "./Drawer";
-// import Drawerdata from "./Drawerdata";
-// import Registerdialog from "./Registerdialog";
-// import Signdialog from "./Signdialog";
-
-// interface NavigationItem {
-//   name: string;
-//   href: string;
-//   current: boolean;
-// }
-
-// const navigation: NavigationItem[] = [
-//   { name: "Home", href: "/", current: true },
-//   { name: "Services", href: "#services", current: false },
-//   { name: "About", href: "#about", current: false },
-//   { name: "Project", href: "#project", current: false },
-//   { name: "Help", href: "/", current: false },
-// ];
-
-// function classNames(...classes: string[]) {
-//   return classes.filter(Boolean).join(" ");
-// }
-
-// const Navbar = () => {
-//   const [isOpen, setIsOpen] = React.useState(false);
-
-//   return (
-//     <Disclosure as="nav" className="navbar">
-//       <>
-//         <div className="mx-auto max-w-7xl px-6 lg:py-4 lg:px-8">
-//           <div className="relative flex h-20 items-center justify-between">
-//             <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
-//               {/* LOGO */}
-
-//               <div className="flex flex-shrink-0 items-center">
-//                 <img
-//                   className="block h-12 w-40 lg:hidden"
-//                   src={getImagePath("/assets/logo/logo.png")}
-//                   alt="dsign-logo"
-//                 />
-//                 <img
-//                   className="hidden h-full w-full lg:block"
-//                   src={getImagePath("/assets/logo/logo.png")}
-//                   alt="dsign-logo"
-//                 />
-//               </div>
-
-//               {/* LINKS */}
-
-//               <div className="hidden lg:block m-auto">
-//                 <div className="flex space-x-4">
-//                   {navigation.map((item) => (
-//                     <Link
-//                       key={item.name}
-//                       href={item.href}
-//                       className={classNames(
-//                         item.current
-//                           ? " text-black hover:opacity-100"
-//                           : "hover:text-black hover:opacity-100",
-//                         "px-3 py-4 text-lg font-normal opacity-75 space-links"
-//                       )}
-//                       aria-current={item.href ? "page" : undefined}
-//                     >
-//                       {item.name}
-//                     </Link>
-//                   ))}
-//                 </div>
-//               </div>
-//             </div>
-
-//             {/* SIGNIN DIALOG */}
-
-//             <Signdialog />
-
-//             {/* REGISTER DIALOG */}
-
-//             <Registerdialog />
-
-//             {/* DRAWER FOR MOBILE VIEW */}
-
-//             {/* DRAWER ICON */}
-
-//             <div className="block lg:hidden">
-//               <Bars3Icon
-//                 className="block h-6 w-6"
-//                 aria-hidden="true"
-//                 onClick={() => setIsOpen(true)}
-//               />
-//             </div>
-
-//             {/* DRAWER LINKS DATA */}
-
-//             <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
-//               <Drawerdata />
-//             </Drawer>
-//           </div>
-//         </div>
-//       </>
-//     </Disclosure>
-//   );
-// };
-
-// export default Navbar;
-
-
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { getImagePath } from "../../../lib/utils";
 import Drawer from "./Drawer";
 import Drawerdata from "./Drawerdata";
@@ -132,78 +22,77 @@ const navigation: NavigationItem[] = [
   { name: "Contact", href: "/contact", current: false },
 ];
 
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(" ");
-}
-
 const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const linkClass = (current: boolean) =>
+    `px-2 py-1 text-sm font-medium rounded transition ${
+      current
+        ? "text-blue-700 bg-blue-100"
+        : "text-gray-700 hover:text-blue-700 hover:bg-gray-100"
+    }`;
+
+  const buttonClass =
+    "inline-flex items-center px-3 py-1.5 text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition";
 
   return (
-    <Disclosure as="nav" className="navbar">
-      <>
-        <div className="mx-auto max-w-7xl px-6 lg:py-4 lg:px-8">
-          <div className="relative flex h-20 items-center justify-between">
-            <div className="flex flex-1 items-center sm:items-stretch sm:justify-start">
-              {/* LOGO */}
-              <div className="flex flex-shrink-0 items-center">
-                <img
-                  className="block h-12 w-40 lg:hidden"
-                  src={getImagePath("/assets/logo/logo.svg")}
-                  alt="ClickInvoice logo"
-                />
-                <img
-                  className="hidden h-full w-full lg:block"
-                  src={getImagePath("/assets/logo/logo.svg")}
-                  alt="ClickInvoice logo"
-                />
-              </div>
-
-              {/* LINKS */}
-              <div className="hidden lg:block m-auto">
-                <div className="flex space-x-4">
-                  {navigation.map((item) => (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      className={classNames(
-                        item.current
-                          ? " text-black hover:opacity-100"
-                          : "hover:text-black hover:opacity-100",
-                        "px-3 py-4 text-lg font-normal opacity-75 space-links"
-                      )}
-                      aria-current={item.current ? "page" : undefined}
-                    >
-                      {item.name}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* SIGNIN DIALOG */}
-            <Signdialog />
-
-            {/* REGISTER DIALOG */}
-            <Registerdialog />
-
-            {/* DRAWER FOR MOBILE VIEW */}
-            {/* DRAWER ICON */}
-            <div className="block lg:hidden">
-              <Bars3Icon
-                className="block h-6 w-6"
-                aria-hidden="true"
-                onClick={() => setIsOpen(true)}
+    <Disclosure as="nav" className="bg-white shadow-sm sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/">
+              <img
+                className="h-10 w-auto"
+                src={getImagePath("/assets/logo/logo.svg")}
+                alt="ClickInvoice logo"
               />
-            </div>
+            </Link>
+          </div>
 
-            {/* DRAWER LINKS DATA */}
-            <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
-              <Drawerdata />
-            </Drawer>
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex space-x-3">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={linkClass(item.current)}
+                aria-current={item.current ? "page" : undefined}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </div>
+
+          {/* Right Buttons */}
+          <div className="flex items-center space-x-2">
+            {/* Sign In Button */}
+            <Signdialog
+              className={buttonClass} // Pass buttonClass into the dialog for styling
+            />
+
+            {/* Sign Up Button */}
+            <Registerdialog
+              className={buttonClass} // Pass buttonClass into the dialog for styling
+            />
+
+            {/* Mobile menu button */}
+            <div className="lg:hidden">
+              <button
+                onClick={() => setIsOpen(true)}
+                className="p-1 rounded-md text-gray-700 hover:text-blue-700 hover:bg-gray-100 transition"
+              >
+                <Bars3Icon className="h-5 w-5" aria-hidden="true" />
+              </button>
+            </div>
           </div>
         </div>
-      </>
+      </div>
+
+      {/* Mobile Drawer */}
+      <Drawer isOpen={isOpen} setIsOpen={setIsOpen}>
+        <Drawerdata />
+      </Drawer>
     </Disclosure>
   );
 };

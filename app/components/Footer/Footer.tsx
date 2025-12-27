@@ -1,268 +1,79 @@
-// "use client";
-// import Image from "next/image";
-// import Link from "next/link";
-// import { getImagePath } from "../../../lib/utils";
-
-// // MIDDLE LINKS DATA
-// interface ProductType {
-//   id: number;
-//   link: string[];
-// }
-
-// const products: ProductType[] = [
-//   {
-//     id: 1,
-//     link: ["Home", "Popular", "About", "Contact"],
-//   },
-//   {
-//     id: 2,
-//     link: ["Help", "Resources", "Application", "Team"],
-//   },
-// ];
-
-// const footer = () => {
-//   return (
-//     <div className="bg-darkblue -mt-40">
-//       <div className="mx-auto max-w-2xl pt-48 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-//         <div className="my-24 grid grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2 lg:grid-cols-12 xl:gap-x-8">
-//           {/* COLUMN-1 */}
-
-//           <div className="col-span-4 md:col-span-12 lg:col-span-4">
-//             <img
-//               src={getImagePath("/assets/footer/logo.svg")}
-//               alt="logo"
-//               className="pb-8"
-//             />
-//             <div className="flex gap-4">
-//               <Link
-//                 href="#!"
-//                 onClick={(e) => e.preventDefault()}
-//                 className="footer-fb-icons"
-//               >
-//                 <Image
-//                   src={getImagePath("/assets/footer/facebook.svg")}
-//                   alt="facebook"
-//                   width={15}
-//                   height={20}
-//                 />
-//               </Link>
-//               <Link
-//                 href="#!"
-//                 onClick={(e) => e.preventDefault()}
-//                 className="footer-icons"
-//               >
-//                 <Image
-//                   src={getImagePath("/assets/footer/twitter.svg")}
-//                   alt="twitter"
-//                   width={20}
-//                   height={20}
-//                 />
-//               </Link>
-//               <Link
-//                 href="#!"
-//                 onClick={(e) => e.preventDefault()}
-//                 className="footer-icons"
-//               >
-//                 <Image
-//                   src={getImagePath("/assets/footer/instagram.svg")}
-//                   alt="instagram"
-//                   width={20}
-//                   height={20}
-//                 />
-//               </Link>
-//             </div>
-//           </div>
-
-//           {/* CLOUMN-2/3 */}
-
-//           {products.map((product) => (
-//             <div
-//               key={product.id}
-//               className="group relative col-span-2 md:col-span-4 lg:col-span-2"
-//             >
-//               <ul>
-//                 {product.link.map((link: string, index: number) => (
-//                   <li key={index} className="mb-5">
-//                     <Link
-//                       href="/"
-//                       className="text-white text-sm font-normal mb-6 space-links"
-//                     >
-//                       {link}
-//                     </Link>
-//                   </li>
-//                 ))}
-//               </ul>
-//             </div>
-//           ))}
-
-//           {/* CLOUMN-4 */}
-
-//           <div className="col-span-4 md:col-span-4 lg:col-span-4">
-//             <div className="flex gap-2">
-//               <Image
-//                 src={getImagePath("/assets/footer/mask.svg")}
-//                 alt="mask-icon"
-//                 width={24}
-//                 height={24}
-//               />
-//               <h5 className="text-base font-normal text-offwhite">
-//                 925 Filbert Street Pennsylvania 18072
-//               </h5>
-//             </div>
-//             <div className="flex gap-2 mt-10">
-//               <Image
-//                 src={getImagePath("/assets/footer/telephone.svg")}
-//                 alt="telephone-icon"
-//                 width={24}
-//                 height={24}
-//               />
-//               <h5 className="text-base font-normal text-offwhite">
-//                 + 45 34 11 44 11
-//               </h5>
-//             </div>
-//             <div className="flex gap-2 mt-10">
-//               <Image
-//                 src={getImagePath("/assets/footer/email.svg")}
-//                 alt="email-icon"
-//                 width={24}
-//                 height={24}
-//               />
-//               <h5 className="text-base font-normal text-offwhite">
-//                 info@gmail.com
-//               </h5>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* All Rights Reserved */}
-
-//         <div className="py-10 lg:flex items-center justify-between border-t border-t-bordertop">
-//           <h4 className="text-offwhite text-sm text-center lg:text-start font-normal">
-//             @2025 Agency. All Rights Reserved by{" "}
-//             <Link href="https://getnextjstemplates.com/" target="_blank">
-//               {" "}
-//               GetNextjsTemplates.
-//             </Link>{" "}
-//             Distributed by{" "}
-//             <Link href="https://themewagon.com/" target="_blank">
-//               ThemeWagon
-//             </Link>
-//           </h4>
-
-//           <div className="flex gap-5 mt-5 lg:mt-0 justify-center lg:justify-start">
-//             <h4 className="text-offwhite text-sm font-normal">
-//               <a
-//                 href="#!"
-//                 onClick={(e) => e.preventDefault()}
-//                 className="cursor-pointer"
-//               >
-//                 Privacy policy
-//               </a>
-//             </h4>
-//             <div className="h-5 bg-bordertop w-0.5"></div>
-//             <h4 className="text-offwhite text-sm font-normal">
-//               <a
-//                 href="#!"
-//                 onClick={(e) => e.preventDefault()}
-//                 className="cursor-pointer"
-//               >
-//                 Terms & conditions
-//               </a>
-//             </h4>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default footer;
-
-
-
 "use client";
-import Image from "next/image";
-import Link from "next/link";
-import { getImagePath } from "../../../lib/utils";
 
-// MIDDLE LINKS DATA
-interface ProductType {
+import Link from "next/link";
+
+// Footer Links Data
+interface FooterSection {
   id: number;
-  link: string[];
+  links: string[];
 }
 
-const products: ProductType[] = [
+const footerSections: FooterSection[] = [
   {
     id: 1,
-    link: ["Home", "Features", "Pricing", "Blog"],
+    links: ["Home", "Features", "Pricing", "Blog"],
   },
   {
     id: 2,
-    link: ["About Us", "Contact", "Support", "FAQ"],
+    links: ["About Us", "Contact", "Support", "FAQ"],
   },
 ];
 
 const Footer = () => {
   return (
-    <div className="bg-darkblue -mt-40">
-      <div className="mx-auto max-w-2xl pt-48 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-        <div className="my-24 grid grid-cols-1 gap-y-10 gap-x-16 sm:grid-cols-2 lg:grid-cols-12 xl:gap-x-8">
-          {/* COLUMN-1 */}
-          <div className="col-span-4 md:col-span-12 lg:col-span-4">
-            <img
-              src={getImagePath("/assets/footer/logo.svg")}
-              alt="ClickInvoice logo"
-              className="pb-8"
-            />
-            <div className="flex gap-4">
+    <footer className="bg-[#0A66C2] text-white pt-12 pb-8 lg:pt-16 lg:pb-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+        {/* Main Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-16">
+
+          {/* Brand */}
+          <div className="lg:col-span-4 flex flex-col space-y-4 text-center lg:text-left">
+            <h1 className="text-white text-2xl lg:text-3xl font-sans">
+              <span className="font-bold">Click</span>Invoice
+            </h1>
+
+            <p className="text-xs text-blue-100 max-w-sm mx-auto lg:mx-0 leading-relaxed">
+              ClickInvoice is a product of{" "}
+              <span className="font-medium">ClickBase Technologies Ltd</span>,
+              built to help businesses invoice professionally and get paid faster.
+            </p>
+
+            {/* Social Links */}
+            <div className="flex flex-wrap justify-center lg:justify-start gap-x-4 gap-y-2 text-sm">
               <Link
-                href="https://facebook.com/clickinvoice" // Update with your actual links
-                className="footer-fb-icons"
+                href="https://facebook.com/clickinvoice"
+                className="hover:text-blue-200"
               >
-                <Image
-                  src={getImagePath("/assets/footer/facebook.svg")}
-                  alt="Facebook"
-                  width={15}
-                  height={20}
-                />
+                Facebook
               </Link>
               <Link
                 href="https://twitter.com/clickinvoice"
-                className="footer-icons"
+                className="hover:text-blue-200"
               >
-                <Image
-                  src={getImagePath("/assets/footer/twitter.svg")}
-                  alt="Twitter"
-                  width={20}
-                  height={20}
-                />
+                Twitter
               </Link>
               <Link
                 href="https://instagram.com/clickinvoice"
-                className="footer-icons"
+                className="hover:text-blue-200"
               >
-                <Image
-                  src={getImagePath("/assets/footer/instagram.svg")}
-                  alt="Instagram"
-                  width={20}
-                  height={20}
-                />
+                Instagram
               </Link>
             </div>
           </div>
 
-          {/* COLUMN-2/3 */}
-          {products.map((product) => (
+          {/* Footer Links */}
+          {footerSections.map((section) => (
             <div
-              key={product.id}
-              className="group relative col-span-2 md:col-span-4 lg:col-span-2"
+              key={section.id}
+              className="lg:col-span-2 text-center lg:text-left"
             >
-              <ul>
-                {product.link.map((link: string, index: number) => (
-                  <li key={index} className="mb-5">
+              <ul className="space-y-2">
+                {section.links.map((link, idx) => (
+                  <li key={idx}>
                     <Link
-                      href={`/${link.toLowerCase().replace(/\s+/g, "-")}`} // Dynamic href; adjust as needed
-                      className="text-white text-sm font-normal mb-6 space-links"
+                      href={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
+                      className="text-sm hover:text-blue-200 transition"
                     >
                       {link}
                     </Link>
@@ -272,67 +83,48 @@ const Footer = () => {
             </div>
           ))}
 
-          {/* COLUMN-4 */}
-          <div className="col-span-4 md:col-span-4 lg:col-span-4">
-            <div className="flex gap-2">
-              <Image
-                src={getImagePath("/assets/footer/mask.svg")}
-                alt="location icon"
-                width={24}
-                height={24}
-              />
-              <h5 className="text-base font-normal text-offwhite">
-                SH1 RD99, Butare,<br />
-                Rwanda
-              </h5>
-            </div>
-            <div className="flex gap-2 mt-10">
-              <Image
-                src={getImagePath("/assets/footer/telephone.svg")}
-                alt="phone icon"
-                width={24}
-                height={24}
-              />
-              <h5 className="text-base font-normal text-offwhite">
-                 +250794159137
-              </h5>
-            </div>
-            <div className="flex gap-2 mt-10">
-              <Image
-                src={getImagePath("/assets/footer/email.svg")}
-                alt="email icon"
-                width={24}
-                height={24}
-              />
-              <h5 className="text-base font-normal text-offwhite">
-                support@clickinvoice.app
-              </h5>
-            </div>
+          {/* Contact Info */}
+          <div className="lg:col-span-4 space-y-3 text-center lg:text-left">
+            <p className="text-sm text-gray-100">
+              SH1 RD99, Butare, Rwanda
+            </p>
+            <p className="text-sm text-gray-100">
+              +250794159137
+            </p>
+            <p className="text-sm text-gray-100">
+              support@clickinvoice.app
+            </p>
           </div>
         </div>
 
-        {/* All Rights Reserved */}
-        <div className="py-10 lg:flex items-center justify-between border-t border-t-bordertop">
-          <h4 className="text-offwhite text-sm text-center lg:text-start font-normal">
-            © 2025 ClickInvoice. All Rights Reserved.
-          </h4>
+        {/* Divider */}
+        <div className="border-t border-blue-400 mt-10 pt-6">
 
-          <div className="flex gap-5 mt-5 lg:mt-0 justify-center lg:justify-start">
-            <h4 className="text-offwhite text-sm font-normal">
-              <Link href="/privacy" className="cursor-pointer">
+          {/* Legal */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 text-center lg:text-left">
+            <p className="text-xs text-gray-100">
+              © 2025 ClickInvoice, a product of ClickBase Technologies Ltd. All Rights Reserved.
+            </p>
+
+            <div className="flex items-center gap-4">
+              <Link
+                href="/privacy"
+                className="text-xs text-gray-100 hover:text-blue-200"
+              >
                 Privacy Policy
               </Link>
-            </h4>
-            <div className="h-5 bg-bordertop w-0.5"></div>
-            <h4 className="text-offwhite text-sm font-normal">
-              <Link href="/terms" className="cursor-pointer">
+              <span className="hidden lg:block h-4 border-l border-blue-400"></span>
+              <Link
+                href="/terms"
+                className="text-xs text-gray-100 hover:text-blue-200"
+              >
                 Terms & Conditions
               </Link>
-            </h4>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
