@@ -24,7 +24,7 @@ const plans = [
   },
   {
     name: "Basic",
-    price: "₦3,734.78",
+    price: "$2.5",
     period: "/month",
     description: "For freelancers and small businesses",
     features: [
@@ -40,7 +40,7 @@ const plans = [
   },
   {
     name: "Premium",
-    price: "₦5,592.25",
+    price: "$6.2",
     period: "/month",
     description: "For growing teams and agencies",
     features: [
