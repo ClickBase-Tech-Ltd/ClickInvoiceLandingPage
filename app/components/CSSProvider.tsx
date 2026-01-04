@@ -9,7 +9,7 @@ export default function CSSProvider() {
     // Set CSS custom properties for background images
     document.documentElement.style.setProperty(
       "--banner-bg-image",
-      `url('${basePath}/assets/banner/shapes.svg')`
+      `url('')`
     );
     document.documentElement.style.setProperty(
       "--clientsay-bg-image",
